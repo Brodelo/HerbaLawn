@@ -1,136 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HerbaLawn LLC</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
-    }
-    header {
-      background: black;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    header img {
-      max-width: 120px;
-      margin-bottom: 15px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-    .sub-header {
-      font-size: 1.25rem;
-      margin-top: 10px;
-    }
-    .section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      color: #28a745;
-    }
-    .section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .services ul {
-      padding-left: 20px;
-    }
-    .about-box {
-      background: white;
-      border-left: 6px solid #28a745;
-      padding: 30px;
-      margin-top: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-    .review-box {
-      background: #fff;
-      border-top: 2px solid #28a745;
-      padding: 40px 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
-    .stars {
-      color: #ffc107;
-      font-size: 1.8rem;
-    }
-    .review-text {
-      font-size: 1.1rem;
-      margin-top: 15px;
-      font-style: italic;
-    }
-    footer {
-      background-color: #212529;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
-    .contact-box {
-      background: white;
-      border: 2px solid #28a745;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .contact-box h3 {
-      margin-top: 0;
-      color: #28a745;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerbaLawn Services | Request a Quote</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --accent: #ffc107;
+            --text: #333333;
+            --text-light: #757575;
+            --background: #f9f9f9;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .nav {
+            margin-left: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            background: url('https://assets.onecompiler.app/43fqsa8sb/43fqrskz9/Fixed%20heading.jpg') center/cover;
+            height: 250px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 16px rgba(0,0,0,0.1);
+        }
+        
+        .service-img {
+            height: 160px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .testimonials {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .testimonial {
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+        
+        .form-container {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .form-intro {
+            padding: 1.5rem 2rem;
+            background-color: var(--primary-light);
+            color: var(--white);
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .iframe-container {
+            padding: 1rem;
+        }
+        
+        .form-iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+        
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav {
+                margin-left: 0;
+            }
+            
+            .hero {
+                height: 200px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .form-container {
+                margin: 0 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="herbaLawn LLC LT 1.2 (1) (W).png" alt="HerbaLawn Logo">
-    <h1>HerbaLawn LLC</h1>
-    <div class="sub-header">Landscaping / Tree Service | Family-Owned in Waco, TX</div>
-  </header>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                <span>HerbaLawn</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#request-quote" class="nav-link">Request Quote</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <section class="section services">
-    <h2>Our Services</h2>
-    <p>We provide top-quality lawn care and landscaping services to the Waco area. Here's what we offer:</p>
-    <ul>
-      <li>Lawn Mowing (starting at $50)</li>
-      <li>Tree Trimming & Removal</li>
-      <li>Leaf & Branch Cleanup</li>
-      <li>Hedge and Bush Shaping</li>
-      <li>Power Washing</li>
-      <li>Custom Landscaping Projects</li>
-    </ul>
-    <p>Available every day except Sundays. Satisfaction guaranteed, every time.</p>
-  </section>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Quality Lawn Care Services</h1>
+            <p class="hero-subtitle">Professional and affordable lawn care solutions for your home or business</p>
+        </div>
+    </section>
 
-  <section class="section about-box">
-    <h2>About Us</h2>
-    <p>At HerbaLawn LLC, we believe your outdoor space should reflect elegance, pride, and comfort. As a family-owned business rooted in Waco, TX, we specialize in delivering high-end landscaping and tree services with unmatched professionalism and attention to detail.</p>
-    <p>Our team is passionate about transforming ordinary yards into extraordinary outdoor environments. We cater to both affluent and middle-class clients who demand quality and luxury in every blade of grass and every trimmed tree. From upscale estates to cozy residential homes, we treat every property like our own.</p>
-    <p>With years of experience, modern equipment, and a sharp eye for design, we’ve earned a reputation for reliability, excellence, and stunning results.</p>
-  </section>
+    <main class="main">
+        <section id="services" class="section">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <img src="https://assets.onecompiler.app/43fqsa8sb/43fqrskz9/Fixed%20lawn%20mower.jpg	" alt="Lawn Mowing" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Lawn Mowing</h3>
+                        <p>Professional lawn mowing service to keep your yard looking its best all season long.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://assets.onecompiler.app/43fqsa8sb/43fqrskz9/Fixed%20Junk.jpg	" alt="Junk Removal" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Junk Removal</h3>
+                        <p>Fast and efficient removal of yard waste, old furniture, and other unwanted items.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://assets.onecompiler.app/43fqsa8sb/43fqrskz9/fixed%20lawn%20care.jpg	" alt="Lawn Maintenance" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Lawn Maintenance</h3>
+                        <p>Complete lawn care packages including fertilization, weed control, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section class="section contact-box">
-    <h3>Contact Us Today!</h3>
-    <p>Call or text us at <strong>254-744-0518</strong> for a free quote.</p>
-    <p>We’re ready to get your yard looking its absolute best.</p>
-  </section>
+        <section id="testimonials" class="section">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">"HerbaLawn has been taking care of my yard for two years now. Their team is always on time, professional, and my lawn has never looked better!"</p>
+                    <p class="testimonial-author">- Sarah Johnson, Waco</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"I needed junk removal after a home renovation and these guys did an amazing job. Quick, efficient, and very reasonably priced."</p>
+                    <p class="testimonial-author">- Michael Rodriguez, Bellmead</p>
+                </div>
+            </div>
+        </section>
 
-  <section class="section review-box">
-    <div class="stars">★★★★★</div>
-    <div class="review-text">“HerbaLawn LLC turned my property into a masterpiece. These guys are on another level. Highly professional and worth every penny!”</div>
-    <p><strong>– A Satisfied Customer</strong></p>
-  </section>
+        <section id="request-quote" class="section">
+            <h2 class="section-title">Request a Free Quote</h2>
+            <div class="form-container">
+                <div class="form-intro">
+                    <h3 class="form-title">Tell Us What You Need</h3>
+                    <p>Fill out the form below and we'll get back to you with a free, no-obligation quote for your lawn care needs.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe 
+                        src="https://brodelo.app.n8n.cloud/form/9c4057ac-9259-4e86-8cdd-a32235bf791b" 
+                        class="form-iframe">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <footer>
-    &copy; 2025 HerbaLawn LLC - All rights reserved. Proudly serving Waco, TX with luxury-level landscaping services.
-  </footer>
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-title">HerbaLawn</h3>
+                <p>Professional lawn care and junk removal services in Waco and surrounding areas.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">in</a>
+                    <a href="#" class="social-icon">ig</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#">Lawn Mowing</a></li>
+                    <li class="footer-link"><a href="#">Junk Removal</a></li>
+                    <li class="footer-link"><a href="#">Lawn Maintenance</a></li>
+                    <li class="footer-link"><a href="#">Garden Design</a></li>
+                    <li class="footer-link"><a href="#">Pest Control</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="footer-links">
+                    <li class="footer-link">📱 (254) 123-4567</li>
+                    <li class="footer-link">✉️ info@herbalawn.com</li>
+                    <li class="footer-link">🏠 123 Main St, Waco, TX 76701</li>
+                    <li class="footer-link">⏰ Mon-Sat: 7am-7pm</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 HerbaLawn Services. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
